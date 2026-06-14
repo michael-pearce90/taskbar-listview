@@ -1,0 +1,59 @@
+name: Research capture
+description: Submit a non-sensitive exact-build research summary.
+title: "[Research]: "
+labels:
+  - research
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Research captures remain unsupported until exact evidence is reviewed, promoted to validated, and passes the future acceptance test. Follow `tests/manual/module-inventory-checklist.md`.
+
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+  - type: input
+    id: evidence_id
+    attributes:
+      label: Evidence ID
+    validations:
+      required: true
+  - type: input
+    id: windows_identity
+    attributes:
+      label: Windows build, UBR, and architecture
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Capture method
+      description: Summarise isolation, shell targeting, local symbol verification, and checklist completion.
+    validations:
+      required: true
+  - type: textarea
+    id: findings
+    attributes:
+      label: Findings
+      description: Provide non-sensitive identities, target results, profile notes, and open questions. Do not upload binaries, PDB files, or memory.
+    validations:
+      required: true
+  - type: dropdown
+    id: disposition
+    attributes:
+      label: Proposed disposition
+      options:
+        - Failed capture
+        - Complete inventory candidate; still unsupported
+        - Rejected as out of scope
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: This capture concerns only grouped taskbar click list behaviour and its exact required modules.
+          required: true
+        - label: I am not claiming that inventory evidence makes a Windows build supported.
+          required: true
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+          required: true

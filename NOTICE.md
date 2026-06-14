@@ -2,12 +2,12 @@
 
 ## Project License
 
-Taskbar Click List is licensed under the GNU General Public License version 3
+Taskbar ListView is licensed under the GNU General Public License version 3
 only (`GPL-3.0-only`). See `LICENSE`.
 
 ## Windhawk Mod Attribution
 
-The research and proposed behavior are based on inspection of:
+The research and proposed behaviour are based on inspection of:
 
 - **Disable Taskbar Thumbnails**, version 1.2
 - File: `mods/taskbar-thumbnails.wh.cpp`

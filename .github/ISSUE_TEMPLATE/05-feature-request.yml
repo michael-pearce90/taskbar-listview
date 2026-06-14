@@ -1,0 +1,46 @@
+name: Feature request
+description: Propose a narrow improvement to grouped taskbar click list behaviour.
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Taskbar ListView is a one-purpose experiment, not a general taskbar customisation project.
+
+        Out of scope: Start menu changes; taskbar styling; taskbar labels; icon size or taskbar position changes; never-combine behaviour; shell replacement features; Windhawk compatibility or mod hosting.
+
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+  - type: textarea
+    id: problem
+    attributes:
+      label: Narrow problem
+      description: Describe a problem directly related to grouped taskbar click list behaviour.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: Explain the smallest change that would address the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and support effect
+      description: Explain how the proposal preserves fail-closed handling and conservative support claims.
+    validations:
+      required: true
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope confirmation
+      options:
+        - label: This request is not for Start menu changes, taskbar styling, taskbar labels, icon size or taskbar position changes, never-combine behaviour, shell replacement features, or Windhawk compatibility or mod hosting.
+          required: true
+        - label: I understand that broad taskbar customisation requests are out of scope and will be closed.
+          required: true
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+          required: true

@@ -19,7 +19,7 @@ Proposed architecture only. No implementation or Windows build is supported.
 flowchart LR
     User["User or future tray command"] --> Launcher["Per-user launcher"]
     Launcher -->|identify exact shell PID| Explorer["explorer.exe"]
-    Launcher -->|LoadLibrary injection| DLL["TaskbarClickList.dll"]
+    Launcher -->|LoadLibrary injection| DLL["TaskbarListView.dll"]
     Launcher <-->|local authenticated IPC| DLL
     DLL --> Identity["Module identity and manifest validator"]
     Identity --> Hooks["Transactional MinHook wrapper"]
@@ -39,7 +39,7 @@ One x64 per-user process:
 - Reads a minimal local enabled flag.
 - Uses `GetShellWindow` to identify the actual shell PID.
 - Verifies path, user SID, session, and architecture.
-- Injects only `TaskbarClickList.dll`.
+- Injects only `TaskbarListView.dll`.
 - Waits on the shell process handle and reinjects after a restart.
 - Hosts local IPC for status and orderly shutdown.
 - Does not enumerate and inject into arbitrary `explorer.exe` processes.

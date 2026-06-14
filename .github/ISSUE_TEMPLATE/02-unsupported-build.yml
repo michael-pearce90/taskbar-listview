@@ -1,0 +1,52 @@
+name: Unsupported Windows build
+description: Record non-sensitive evidence about an exact Windows module set.
+title: "[Unsupported build]: "
+labels:
+  - unsupported-build
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Taskbar ListView currently supports no Windows builds. A report helps research but does not mean support is promised. Future private Explorer or taskbar hooks may break after any Windows update, and unsupported builds must fail closed.
+
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+  - type: input
+    id: windows_build
+    attributes:
+      label: Windows build and UBR
+      description: Diagnostic information only; this does not establish compatibility.
+      placeholder: For example, 26100.x
+    validations:
+      required: true
+  - type: input
+    id: architecture
+    attributes:
+      label: Architecture
+      placeholder: amd64
+    validations:
+      required: true
+  - type: textarea
+    id: identities
+    attributes:
+      label: Non-sensitive module identity summary
+      description: Provide text values such as file versions, PE timestamps, image sizes, hashes, and CodeView GUID/age. Do not upload binaries or PDB files.
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed result
+      description: Explain how the build failed closed or why it appears unsupported.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I understand that this report does not promise support for this build.
+          required: true
+        - label: I am not requesting broad taskbar customisation, shell replacement, or Windhawk compatibility.
+          required: true
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+          required: true
