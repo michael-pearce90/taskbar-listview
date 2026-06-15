@@ -2,14 +2,84 @@
 
 ## Status
 
-Tooling contract only. No generator is implemented.
+An inventory-only CLI skeleton is implemented. It reads one explicit local
+copied PE file and emits a draft module identity record as JSON.
 
-The future tool produces candidate offline symbol-manifest records. It does
-not inject, hook, patch, download symbols, or declare Windows support.
+It does not enumerate or open processes, access Explorer, inject, hook, patch,
+download symbols, contact a network service, or declare Windows support.
+There is no runtime yet and there are no supported Windows builds.
 
-## Responsibilities
+## Inventory Command
 
-The tool should:
+Python 3.10 or newer is required. The implementation uses only the Python
+standard library.
+
+```powershell
+python tools/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll
+```
+
+Redirect standard output to retain the draft:
+
+```powershell
+python tools/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll `
+  > C:\evidence\taskbar.identity.json
+```
+
+The command accepts only a user-provided local file path. It does not discover
+loaded modules or copy files from Windows directories. Analyse a separate
+copy when preserving evidence.
+
+The command currently accepts only native AMD64 PE images. It exits nonzero
+with a clear error for a missing file, directory, non-PE input, unsupported
+machine type, malformed PE structure, or local read failure. Missing CodeView
+data is not an error and is reported explicitly.
+
+### Output Shape
+
+Values below are illustrative only and do not identify a supported build.
+
+```json
+{
+  "schema_version": 1,
+  "record_type": "module-identity-draft",
+  "support_state": "inventory-only",
+  "support_note": "Local file identity only; no Windows build support is established.",
+  "generator": {
+    "name": "taskbar-listview-module-inventory",
+    "version": "0.1.0"
+  },
+  "module": {
+    "module_name": "taskbar.dll",
+    "input_path": "C:\\evidence\\modules\\taskbar.dll",
+    "architecture": "amd64",
+    "pe_machine": "0x8664",
+    "file_version": "10.0.00000.0000",
+    "product_version": "10.0.00000.0000",
+    "pe_timestamp": "0x00000000",
+    "size_of_image": 123456,
+    "sha256": "lowercase-sha256",
+    "codeview": {
+      "present": true,
+      "format": "RSDS",
+      "pdb_name": "taskbar.pdb",
+      "guid": "00000000-0000-0000-0000-000000000000",
+      "age": 1
+    }
+  }
+}
+```
+
+When no CodeView entry is present, `present` is `false` and `format`,
+`pdb_name`, `guid`, and `age` are `null`.
+
+The output contains no generation time, and keys have a fixed order, so
+repeated runs against the same path and unchanged file are deterministic.
+`input_path` is the resolved absolute path supplied for local traceability and
+must be removed or normalised before committing a shared candidate record.
+
+## Broader Future Responsibilities
+
+The eventual symbol-manifest tool should:
 
 - inspect exact copied Windows PE images;
 - verify local PDB identity against each image's CodeView record;
@@ -32,9 +102,10 @@ The tool should not:
 - install MinHook hooks; or
 - change `support_state` to `validated` automatically.
 
-## Proposed Commands
+## Future Proposed Commands
 
-Command names are provisional.
+The broader command names below remain provisional and are not implemented by
+this inventory spike.
 
 ```text
 symbol-manifest capture --config targets.json --evidence <directory>
