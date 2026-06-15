@@ -39,6 +39,24 @@ network-backed path, or missing/unreadable version metadata. Both
 `file_version` and `product_version` are required for successful output.
 Missing CodeView data is not an error and is reported explicitly.
 
+## Automated Tests
+
+Run the dependency-free parser and failure-behaviour tests from the repository
+root:
+
+```powershell
+python -m unittest discover
+```
+
+The tests use synthetic byte arrays and temporary files only. They do not
+contain or inspect Microsoft binaries, Windows system binaries, PDBs, or
+generated inventory from real Windows modules.
+
+The automated suite does not establish a successful inventory path. Full
+successful inventory still requires Windows and a copied local AMD64 PE file
+with readable file and product version metadata. That remains a manual, local
+verification step and does not establish support for any Windows build.
+
 ### Output Shape
 
 Values below are illustrative only and do not identify a supported build.
