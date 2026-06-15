@@ -21,6 +21,7 @@ MAX_SECTIONS = 96
 MAX_DEBUG_ENTRIES = 256
 MAX_CODEVIEW_SIZE = 1024 * 1024
 AMD64_MACHINE = 0x8664
+DRIVE_REMOTE = 4
 
 
 class InventoryError(Exception):
@@ -284,6 +285,37 @@ def _format_version(ms: int, ls: int) -> str:
     return f"{ms >> 16}.{ms & 0xffff}.{ls >> 16}.{ls & 0xffff}"
 
 
+def _is_unc_path(path: Path) -> bool:
+    normalized = str(path).replace("/", "\\")
+    folded = normalized.casefold()
+    if folded.startswith("\\\\?\\unc\\"):
+        return True
+    if folded.startswith("\\\\?\\") or folded.startswith("\\\\.\\"):
+        return False
+    return normalized.startswith("\\\\")
+
+
+def _reject_network_path(path: Path) -> None:
+    if _is_unc_path(path):
+        raise InventoryError(f"network-backed input path is not allowed: {path}")
+    if os.name != "nt":
+        return
+
+    drive, _ = ntpath.splitdrive(str(path))
+    if len(drive) < 2 or drive[-1] != ":" or not drive[-2].isalpha():
+        return
+
+    kernel32 = ctypes.WinDLL("kernel32", use_last_error=True)
+    kernel32.GetDriveTypeW.argtypes = [ctypes.c_wchar_p]
+    kernel32.GetDriveTypeW.restype = ctypes.c_uint32
+    drive_root = f"{drive}\\"
+    if kernel32.GetDriveTypeW(drive_root) == DRIVE_REMOTE:
+        raise InventoryError(
+            "network-backed input path is not allowed: "
+            f"{drive_root} is a remote drive"
+        )
+
+
 def read_versions(path: Path) -> tuple[str, str]:
     if os.name != "nt":
         raise InventoryError(
@@ -363,21 +395,27 @@ def read_versions(path: Path) -> tuple[str, str]:
 
 def inspect_file(input_path: str) -> dict[str, object]:
     path = Path(input_path).expanduser()
-    if not path.exists():
-        raise InventoryError(f"file does not exist: {path}")
-    if path.is_dir():
-        raise InventoryError(f"path is a directory, not a file: {path}")
-    if not path.is_file():
-        raise InventoryError(f"path is not a regular file: {path}")
+    _reject_network_path(path)
 
     try:
-        resolved_path = path.resolve(strict=True)
+        resolved_path = path.resolve(strict=False)
+        _reject_network_path(resolved_path)
+        if not resolved_path.exists():
+            raise InventoryError(f"file does not exist: {resolved_path}")
+        if resolved_path.is_dir():
+            raise InventoryError(
+                f"path is a directory, not a file: {resolved_path}"
+            )
+        if not resolved_path.is_file():
+            raise InventoryError(f"path is not a regular file: {resolved_path}")
         file_size = resolved_path.stat().st_size
         if file_size > MAX_FILE_SIZE:
             raise InventoryError(
                 f"input is too large: {file_size} bytes; limit is {MAX_FILE_SIZE}"
             )
         data = resolved_path.read_bytes()
+    except InventoryError:
+        raise
     except OSError as error:
         raise InventoryError(f"could not read local file: {error}") from error
 

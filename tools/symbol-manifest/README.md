@@ -28,14 +28,16 @@ python tools/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll `
 
 The command accepts only a user-provided local file path. It does not discover
 loaded modules or copy files from Windows directories. Analyse a separate
-copy when preserving evidence.
+copy when preserving evidence. Network-backed paths are rejected before file
+inspection, including direct UNC paths, mapped network drives, and local
+reparse paths that resolve to UNC or mapped network storage.
 
 The command currently accepts only native AMD64 PE images. It exits nonzero
 with a clear error for a missing file, directory, non-PE input, unsupported
 machine type, malformed PE structure, local read failure, non-Windows host, or
-missing/unreadable version metadata. Both `file_version` and
-`product_version` are required for successful output. Missing CodeView data is
-not an error and is reported explicitly.
+network-backed path, or missing/unreadable version metadata. Both
+`file_version` and `product_version` are required for successful output.
+Missing CodeView data is not an error and is reported explicitly.
 
 ### Output Shape
 
