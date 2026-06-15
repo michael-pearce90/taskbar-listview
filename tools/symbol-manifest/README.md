@@ -11,8 +11,9 @@ There is no runtime yet and there are no supported Windows builds.
 
 ## Inventory Command
 
-Python 3.10 or newer is required. The implementation uses only the Python
-standard library.
+Python 3.10 or newer on Windows is required. The implementation uses only the
+Python standard library. Other hosts fail clearly because cross-platform PE
+version-resource parsing is not implemented.
 
 ```powershell
 python tools/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll
@@ -31,8 +32,10 @@ copy when preserving evidence.
 
 The command currently accepts only native AMD64 PE images. It exits nonzero
 with a clear error for a missing file, directory, non-PE input, unsupported
-machine type, malformed PE structure, or local read failure. Missing CodeView
-data is not an error and is reported explicitly.
+machine type, malformed PE structure, local read failure, non-Windows host, or
+missing/unreadable version metadata. Both `file_version` and
+`product_version` are required for successful output. Missing CodeView data is
+not an error and is reported explicitly.
 
 ### Output Shape
 

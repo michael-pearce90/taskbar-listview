@@ -284,9 +284,11 @@ def _format_version(ms: int, ls: int) -> str:
     return f"{ms >> 16}.{ms & 0xffff}.{ls >> 16}.{ls & 0xffff}"
 
 
-def read_versions(path: Path) -> tuple[str | None, str | None]:
+def read_versions(path: Path) -> tuple[str, str]:
     if os.name != "nt":
-        return None, None
+        raise InventoryError(
+            "version metadata inspection is currently supported only on Windows"
+        )
 
     version = ctypes.WinDLL("version", use_last_error=True)
     version.GetFileVersionInfoSizeW.argtypes = [
@@ -310,9 +312,18 @@ def read_versions(path: Path) -> tuple[str | None, str | None]:
     version.VerQueryValueW.restype = ctypes.c_int
 
     ignored = ctypes.c_uint32()
+    ctypes.set_last_error(0)
     info_size = version.GetFileVersionInfoSizeW(str(path), ctypes.byref(ignored))
     if info_size == 0:
-        return None, None
+        error_code = ctypes.get_last_error()
+        if error_code:
+            raise InventoryError(
+                "required file and product version metadata is unavailable: "
+                f"{ctypes.WinError(error_code)}"
+            )
+        raise InventoryError(
+            "required file and product version metadata is absent"
+        )
 
     buffer = ctypes.create_string_buffer(info_size)
     if not version.GetFileVersionInfoW(str(path), 0, info_size, buffer):
@@ -320,10 +331,19 @@ def read_versions(path: Path) -> tuple[str | None, str | None]:
 
     value_pointer = ctypes.c_void_p()
     value_size = ctypes.c_uint32()
+    ctypes.set_last_error(0)
     if not version.VerQueryValueW(
         buffer, "\\", ctypes.byref(value_pointer), ctypes.byref(value_size)
     ):
-        return None, None
+        error_code = ctypes.get_last_error()
+        if error_code:
+            raise InventoryError(
+                "required fixed file and product version metadata could not "
+                f"be read: {ctypes.WinError(error_code)}"
+            )
+        raise InventoryError(
+            "required fixed file and product version metadata is absent"
+        )
     if value_size.value < ctypes.sizeof(VsFixedFileInfo):
         raise InventoryError("malformed PE: truncated fixed file version resource")
 
