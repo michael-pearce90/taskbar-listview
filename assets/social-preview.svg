@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640"
      viewBox="0 0 1280 640" role="img"
      aria-labelledby="title description">
-  <title id="title">Taskbar ListView social preview</title>
+  <title id="title">TechTools for Windows social preview</title>
   <desc id="description">
-    Project title beside a conceptual change from wide preview cards to a
-    compact vertical list of readable window titles.
+    Suite title beside conceptual module panels for technician-focused
+    open-source tools for Windows.
   </desc>
 
   <defs>
@@ -26,19 +26,19 @@
     <rect width="74" height="8" rx="4" fill="#38bdf8"/>
     <text x="0" y="94" fill="#f8fafc"
           font-family="Segoe UI, Arial, sans-serif"
-          font-size="66" font-weight="700">Taskbar ListView</text>
+          font-size="62" font-weight="700">TechTools for Windows</text>
     <text x="2" y="153" fill="#cbd5e1"
           font-family="Segoe UI, Arial, sans-serif"
-          font-size="29">Grouped taskbar clicks. Readable titles.</text>
+          font-size="29">Technician-focused open-source tools.</text>
 
     <g transform="translate(2 228)">
       <rect width="392" height="1" fill="#475569"/>
       <text x="0" y="52" fill="#94a3b8"
             font-family="Segoe UI, Arial, sans-serif"
-            font-size="21" letter-spacing="2">ONE-PURPOSE EXPERIMENT</text>
+            font-size="21" letter-spacing="2">EXPERIMENTAL SUITE</text>
       <text x="0" y="99" fill="#e2e8f0"
             font-family="Segoe UI, Arial, sans-serif"
-            font-size="23">Compact list instead of wide previews</text>
+            font-size="23">Narrow modules with clear boundaries</text>
     </g>
   </g>
 
@@ -48,7 +48,7 @@
 
     <text x="34" y="48" fill="#64748b"
           font-family="Segoe UI, Arial, sans-serif"
-          font-size="17" font-weight="600" letter-spacing="1.5">WIDE PREVIEWS</text>
+          font-size="17" font-weight="600" letter-spacing="1.5">CURRENT MODULE</text>
 
     <g transform="translate(34 70)">
       <rect width="138" height="92" rx="12" fill="#1e293b"
@@ -75,26 +75,26 @@
 
     <text x="34" y="258" fill="#7dd3fc"
           font-family="Segoe UI, Arial, sans-serif"
-          font-size="17" font-weight="600" letter-spacing="1.5">READABLE LIST</text>
+          font-size="17" font-weight="600" letter-spacing="1.5">MODULE ROADMAP</text>
 
     <g transform="translate(34 278)">
       <rect width="450" height="48" rx="10" fill="#1e293b"/>
       <rect x="14" y="14" width="20" height="20" rx="5" fill="#38bdf8"/>
       <text x="50" y="31" fill="#e2e8f0"
             font-family="Segoe UI, Arial, sans-serif"
-            font-size="18">Project notes</text>
+            font-size="18">Taskbar ListView</text>
 
       <rect y="58" width="450" height="48" rx="10" fill="#1e293b"/>
       <rect x="14" y="72" width="20" height="20" rx="5" fill="#818cf8"/>
       <text x="50" y="89" fill="#e2e8f0"
             font-family="Segoe UI, Arial, sans-serif"
-            font-size="18">Research summary</text>
+            font-size="18">Browser Choice Tools proposal</text>
 
       <rect y="116" width="450" height="48" rx="10" fill="#1e293b"/>
       <rect x="14" y="130" width="20" height="20" rx="5" fill="#34d399"/>
       <text x="50" y="147" fill="#e2e8f0"
             font-family="Segoe UI, Arial, sans-serif"
-            font-size="18">Design review</text>
+            font-size="18">Safety model and admission rules</text>
     </g>
   </g>
 </svg>

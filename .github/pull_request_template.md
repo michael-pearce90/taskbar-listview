@@ -1,24 +1,27 @@
 ## Summary
 
-Describe the focused change and why it belongs in Taskbar ListView.
+Describe the focused change, affected module, and why it belongs in TechTools
+for Windows.
 
 ## Project Truth
 
 - [ ] I have not claimed implementation or supported builds without repository
       evidence.
-- [ ] I have kept the project separate from Windhawk and have not described it
-      as a Windhawk fork, compatibility layer, or mod host.
+- [ ] I have kept Taskbar ListView separate from Windhawk and have not
+      described it as a Windhawk fork, compatibility layer, or mod host.
 - [ ] Public wording remains experimental and states that Windows updates may
       break future private Explorer or taskbar hooks where relevant.
-- [ ] Unsupported builds still fail closed.
+- [ ] Unsupported or mismatched builds still fail closed.
+- [ ] I have not claimed Microsoft affiliation or used product logos or service
+      marks for Microsoft, Windows, Edge, Bing, PowerToys, or Sysinternals.
 
 ## Scope and Safety
 
-- [ ] The change stays within grouped taskbar click list behaviour or its
-      narrow supporting research, safety, support, and documentation needs.
+- [ ] The change stays within an admitted module boundary or shared suite
+      documentation.
 - [ ] I have not included crash dumps, raw process memory, private symbols, PDB
       files, Microsoft binaries, full system dumps, secrets, tokens, private
-      URLs, or sensitive personal data.
+      URLs, credentials, cookies, sessions, or sensitive personal data.
 - [ ] Licensing and attribution remain correct.
 
 ## Verification

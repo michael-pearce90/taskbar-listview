@@ -2,17 +2,21 @@
 
 ## Project State
 
-Taskbar ListView is experimental. There is no implementation runtime and no
-supported Windows build yet.
+TechTools for Windows is experimental. There is no implementation runtime and
+no supported Windows build yet.
 
-A future implementation would hook private, undocumented Explorer and taskbar
-internals. Windows updates may break those internals. Unknown, changed, or
-partially matched builds must fail closed without installing hooks.
+Taskbar ListView has no runtime yet. A future implementation would hook
+private, undocumented Explorer and taskbar internals. Windows updates may
+break those internals. Unknown, changed, or partially matched builds must fail
+closed without installing hooks.
+
+Browser Choice Tools is proposal only. It has no code, redirector, installer,
+or runtime.
 
 ## Reporting a Security Concern
 
-Do not include sensitive evidence in a public issue or pull request.
-In particular, do not paste or attach:
+Do not include sensitive evidence in a public issue or pull request. In
+particular, do not paste or attach:
 
 - crash dumps;
 - raw process memory;
@@ -22,7 +26,10 @@ In particular, do not paste or attach:
 - full system dumps;
 - secrets;
 - tokens;
-- private URLs; or
+- private URLs;
+- credentials;
+- cookies;
+- sessions; or
 - sensitive personal data.
 
 If GitHub private vulnerability reporting is enabled for the future public
@@ -30,8 +37,9 @@ repository, use it. It is not enabled by this branch. Otherwise, open a
 minimal security issue containing no sensitive details and ask the maintainer
 for a private contact route.
 
-State only the affected project document or future release, the general impact,
-and whether public discussion would expose sensitive material.
+State only the affected project document, proposed module, or future release,
+the general impact, and whether public discussion would expose sensitive
+material.
 
 ## Supported Versions
 

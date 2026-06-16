@@ -7,9 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Research captures remain unsupported until exact evidence is reviewed, promoted to validated, and passes the future acceptance test. Follow `tests/manual/module-inventory-checklist.md`.
+        Taskbar ListView research captures remain unsupported until exact evidence is reviewed, promoted to validated, and passes the future acceptance test. Follow `tools/taskbar-listview/tests/manual/module-inventory-checklist.md`.
 
-        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.**
   - type: input
     id: evidence_id
     attributes:
@@ -55,5 +55,5 @@ body:
           required: true
         - label: I am not claiming that inventory evidence makes a Windows build supported.
           required: true
-        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.
           required: true

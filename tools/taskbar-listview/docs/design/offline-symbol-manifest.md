@@ -355,7 +355,7 @@ Generation is split so the test VM does not need network access.
 16. Re-run generation from the same evidence directory and require byte-for-
     byte identical output.
 17. Review the diff and complete
-    `tests/manual/module-inventory-checklist.md`.
+    `tools/taskbar-listview/tests/manual/module-inventory-checklist.md`.
 18. Keep the record `inventory-only` until the future implementation passes
     the full acceptance test on the same exact VM snapshot.
 

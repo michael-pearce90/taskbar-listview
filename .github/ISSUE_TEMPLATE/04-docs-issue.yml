@@ -7,9 +7,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        Documentation must keep public claims conservative: experimental, no supported builds yet, future use of private Explorer or taskbar internals, Windows updates may break it, and unsupported builds must fail closed.
+        Documentation must keep public claims conservative: experimental, no supported builds yet, proposal versus implementation, future use of private Explorer or taskbar internals where relevant, Windows updates may break unsupported internals, and unsupported builds must fail closed.
 
-        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.**
   - type: input
     id: location
     attributes:
@@ -34,7 +34,7 @@ body:
     attributes:
       label: Confirmations
       options:
-        - label: This is a documentation issue, not a broad taskbar customisation request.
+        - label: This is a documentation issue, not a broad customisation request.
           required: true
-        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.
           required: true

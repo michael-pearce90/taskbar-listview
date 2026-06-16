@@ -1,5 +1,5 @@
 name: Bug report
-description: Report a reproducible defect in project material or a future release.
+description: Report a reproducible defect in suite material or a future release.
 title: "[Bug]: "
 labels:
   - bug
@@ -7,14 +7,17 @@ body:
   - type: markdown
     attributes:
       value: |
-        Taskbar ListView is experimental and currently has no implementation runtime or supported Windows builds. Do not use this form for broad taskbar customisation.
+        TechTools for Windows is experimental and currently has no implementation runtime or supported Windows builds. Do not use this form for broad customisation or proposal expansion.
 
-        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.**
   - type: dropdown
     id: affected_area
     attributes:
       label: Affected area
       options:
+        - Suite documentation
+        - Taskbar ListView
+        - Browser Choice Tools proposal
         - Documentation
         - Research tooling
         - Future packaged release
@@ -52,7 +55,7 @@ body:
     attributes:
       label: Scope confirmation
       options:
-        - label: This concerns grouped taskbar click list behaviour or project material, not broad taskbar customisation.
+        - label: This concerns suite material or an admitted module boundary, not broad system customisation.
           required: true
-        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.
           required: true

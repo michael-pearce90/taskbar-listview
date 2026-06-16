@@ -12,7 +12,11 @@ from unittest import mock
 
 REPOSITORY_ROOT = Path(__file__).resolve().parents[1]
 INVENTORY_PATH = (
-    REPOSITORY_ROOT / "tools" / "symbol-manifest" / "inventory.py"
+    REPOSITORY_ROOT
+    / "tools"
+    / "taskbar-listview"
+    / "symbol-manifest"
+    / "inventory.py"
 )
 SPEC = importlib.util.spec_from_file_location(
     "symbol_manifest_inventory", INVENTORY_PATH
