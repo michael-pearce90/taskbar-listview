@@ -384,7 +384,8 @@ A build becomes supported only when:
 
 - Its exact module identities exist in the manifest.
 - Every required target fingerprint matches.
-- The complete profile passes `tests/manual/acceptance-test.md`.
+- The complete profile passes
+  `tools/taskbar-listview/tests/manual/acceptance-test.md`.
 - Disable, host-loss, Explorer restart, and uninstall rollback pass.
 
 Any Windows update that changes one identity returns the tool to unsupported

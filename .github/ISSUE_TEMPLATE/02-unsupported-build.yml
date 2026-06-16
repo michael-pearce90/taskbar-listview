@@ -9,7 +9,7 @@ body:
       value: |
         Taskbar ListView currently supports no Windows builds. A report helps research but does not mean support is promised. Future private Explorer or taskbar hooks may break after any Windows update, and unsupported builds must fail closed.
 
-        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.**
   - type: input
     id: windows_build
     attributes:
@@ -48,5 +48,5 @@ body:
           required: true
         - label: I am not requesting broad taskbar customisation, shell replacement, or Windhawk compatibility.
           required: true
-        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.
           required: true

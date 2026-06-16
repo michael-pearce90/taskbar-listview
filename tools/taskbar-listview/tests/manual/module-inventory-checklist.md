@@ -11,7 +11,7 @@ future implementation and a full pass of
 
 ## Tool Test Preflight
 
-- [ ] `python -m unittest discover` passes from the repository root.
+- [ ] `python -B -m unittest discover` passes from the repository root.
 - [ ] Successful inventory is verified manually on Windows using a copied
       local AMD64 PE file with readable file and product version metadata.
 - [ ] The copied PE, any PDB, and generated real-module inventory remain

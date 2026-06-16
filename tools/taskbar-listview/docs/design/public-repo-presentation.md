@@ -1,25 +1,27 @@
 # Public Repository Presentation
 
-This note records the public landing-page wording and social preview handling
-for Taskbar ListView. It does not change project scope, implementation state,
-or support status.
+This note records the legacy public presentation wording for the Taskbar
+ListView module. The root repository presentation now belongs to TechTools for
+Windows. This note does not change module scope, implementation state, or
+support status.
 
 ## Repository Description
 
-Keep the GitHub repository description as:
+When Taskbar ListView is described as a module, keep the module description
+close to:
 
-> List view for grouped Windows 11 taskbar clicks.
+> Proposed list view for grouped Windows 11 taskbar clicks.
 
 ## Social Preview Source
 
 The repo-owned source artwork is
-[`assets/social-preview.svg`](../../assets/social-preview.svg). It is a
-1280 by 640 SVG containing original text and generic interface shapes. It does
-not use copied screenshots, platform branding, or application branding.
+[`assets/social-preview.svg`](../../../../assets/social-preview.svg). It is a
+1280 by 640 SVG containing original text and generic interface shapes for the
+TechTools for Windows suite. It does not use copied screenshots, platform
+branding, or application branding.
 
-The source communicates one idea: a compact vertical list of readable titles
-replacing wide thumbnail previews. It must not be presented as a screenshot or
-as evidence of implemented behaviour.
+The source communicates the suite identity and module roadmap. It must not be
+presented as a screenshot or as evidence of implemented behaviour.
 
 ## Manual Export
 
@@ -53,11 +55,12 @@ performed by this documentation branch.
 
 ## Presentation Guardrails
 
-- Keep the display name **Taskbar ListView**.
-- Keep the project described as experimental.
+- Keep the root display name **TechTools for Windows**.
+- Keep Taskbar ListView described as experimental.
 - State that there are no supported Windows builds and no runtime yet.
 - Treat future private Explorer and taskbar internals as liable to break after
   Windows updates.
 - Keep the one-purpose grouped-click title-list scope visible.
+- Keep Browser Choice Tools clearly marked as proposed, with no code yet.
 - Do not imply that the conceptual artwork is working software.
 - Do not add copied product interfaces, platform marks, or application marks.

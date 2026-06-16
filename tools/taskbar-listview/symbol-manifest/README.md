@@ -16,13 +16,13 @@ Python standard library. Other hosts fail clearly because cross-platform PE
 version-resource parsing is not implemented.
 
 ```powershell
-python tools/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll
+python tools/taskbar-listview/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll
 ```
 
 Redirect standard output to retain the draft:
 
 ```powershell
-python tools/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll `
+python tools/taskbar-listview/symbol-manifest/inventory.py C:\evidence\modules\taskbar.dll `
   > C:\evidence\taskbar.identity.json
 ```
 
@@ -45,7 +45,7 @@ Run the dependency-free parser and failure-behaviour tests from the repository
 root:
 
 ```powershell
-python -m unittest discover
+python -B -m unittest discover
 ```
 
 The tests use synthetic byte arrays and temporary files only. They do not
@@ -319,7 +319,7 @@ confirmed. Commit hashes and generated metadata instead.
 
 ## Related Documents
 
-- [Offline symbol manifest design](../../docs/design/offline-symbol-manifest.md)
-- [Windows module inventory](../../docs/research/windows-module-inventory.md)
-- [Module inventory checklist](../../tests/manual/module-inventory-checklist.md)
-- [Manual acceptance test](../../tests/manual/acceptance-test.md)
+- [Offline symbol manifest design](../docs/design/offline-symbol-manifest.md)
+- [Windows module inventory](../docs/research/windows-module-inventory.md)
+- [Module inventory checklist](../tests/manual/module-inventory-checklist.md)
+- [Manual acceptance test](../tests/manual/acceptance-test.md)

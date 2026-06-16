@@ -1,5 +1,5 @@
 name: Feature request
-description: Propose a narrow improvement to grouped taskbar click list behaviour.
+description: Propose a narrow improvement within an admitted module boundary.
 title: "[Feature]: "
 labels:
   - enhancement
@@ -7,16 +7,18 @@ body:
   - type: markdown
     attributes:
       value: |
-        Taskbar ListView is a one-purpose experiment, not a general taskbar customisation project.
+        TechTools for Windows is a modular suite, not a general system customisation project. Taskbar ListView is a one-purpose experiment. Browser Choice Tools is proposal only and has no code yet.
 
-        Out of scope: Start menu changes; taskbar styling; taskbar labels; icon size or taskbar position changes; never-combine behaviour; shell replacement features; Windhawk compatibility or mod hosting.
+        Out of scope for Taskbar ListView: Start menu changes; taskbar styling; taskbar labels; icon size or taskbar position changes; never-combine behaviour; shell replacement features; Windhawk compatibility or mod hosting.
 
-        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.**
+        Browser Choice Tools requests must remain proposal-level, opt-in, transparent, reversible, local-only, and respectful of the user-selected browser and search provider.
+
+        **Do not paste or attach crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.**
   - type: textarea
     id: problem
     attributes:
       label: Narrow problem
-      description: Describe a problem directly related to grouped taskbar click list behaviour.
+      description: Describe a problem directly related to an admitted module boundary.
     validations:
       required: true
   - type: textarea
@@ -38,9 +40,9 @@ body:
     attributes:
       label: Scope confirmation
       options:
-        - label: This request is not for Start menu changes, taskbar styling, taskbar labels, icon size or taskbar position changes, never-combine behaviour, shell replacement features, or Windhawk compatibility or mod hosting.
+        - label: This request is not for broad system customisation or out-of-scope Taskbar ListView behaviour.
           required: true
-        - label: I understand that broad taskbar customisation requests are out of scope and will be closed.
+        - label: I understand that broad customisation requests are out of scope and will be closed.
           required: true
-        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, or sensitive personal data.
+        - label: I have not included crash dumps, raw process memory, private symbols, PDB files, Microsoft binaries, full system dumps, secrets, tokens, private URLs, credentials, cookies, sessions, or sensitive personal data.
           required: true

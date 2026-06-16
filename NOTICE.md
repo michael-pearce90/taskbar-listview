@@ -2,12 +2,23 @@
 
 ## Project License
 
-Taskbar ListView is licensed under the GNU General Public License version 3
-only (`GPL-3.0-only`). See `LICENSE`.
+TechTools for Windows is licensed under the GNU General Public License version
+3 only (`GPL-3.0-only`). See `LICENSE`.
 
-## Windhawk Mod Attribution
+## Microsoft Non-Affiliation
 
-The research and proposed behaviour are based on inspection of:
+TechTools for Windows is not affiliated with or endorsed by Microsoft.
+Windows and related names are trademarks of Microsoft. Their use in this
+repository describes compatibility only.
+
+The project must not use product logos or service marks for Microsoft,
+Windows, Edge, Bing, PowerToys, or Sysinternals, and must not claim to be a
+Microsoft project.
+
+## Taskbar ListView Windhawk Mod Attribution
+
+The Taskbar ListView research and proposed behaviour are based on inspection
+of:
 
 - **Disable Taskbar Thumbnails**, version 1.2
 - File: `mods/taskbar-thumbnails.wh.cpp`
@@ -30,14 +41,15 @@ If implementation code is later adapted from the mod, source files must:
 3. Remain licensed under GPL version 3.
 4. Link to the exact upstream revision used as the adaptation base.
 
-This project is independent and is not endorsed by or affiliated with
+Taskbar ListView is independent and is not endorsed by or affiliated with
 Windhawk, Ramen Software, or Michael Maltsev.
 
 ## Windhawk Runtime
 
 Windhawk was inspected to understand the API surface used by the mod. The
-proposed standalone design does not require copying Windhawk's injection,
-symbol, settings, lifecycle, or hook-management runtime code.
+proposed standalone Taskbar ListView design does not require copying
+Windhawk's injection, symbol, settings, lifecycle, or hook-management runtime
+code.
 
 ## Possible MinHook Dependency
 
@@ -50,6 +62,3 @@ binaries.
   `d94c64d32ea37bc4f5ee47d580709f70c6fb6080`
 - License:
   <https://github.com/TsudaKageyu/minhook/blob/d94c64d32ea37bc4f5ee47d580709f70c6fb6080/LICENSE.txt>
-
-Windows and related names are trademarks of Microsoft. Their use describes the
-platform targeted by this project.

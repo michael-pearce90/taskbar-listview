@@ -159,7 +159,8 @@ Inventory completion alone is insufficient. Promotion requires:
 2. Independent review of hashes, PDB matches, symbol resolution, fingerprints,
    and ABI notes.
 3. A future runtime that consumes the manifest without symbol or network code.
-4. A complete pass of `tests/manual/acceptance-test.md` on the same exact
+4. A complete pass of
+   `tools/taskbar-listview/tests/manual/acceptance-test.md` on the same exact
    module set.
 5. Verified disable, host-loss, Explorer restart, and uninstall rollback.
 6. A no-network trace.
